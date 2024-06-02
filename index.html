@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baking Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('BakingBackground.jpg');
+			background-size: cover; /* Ensure the image covers the entire background */
+			background-position: center; /* Center the image */
+			background-repeat: no-repeat; /* Do not repeat the image */
+        }
+
+        header {
+            background-color: #8b4513; /* Dark brown header background color */
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .welcome-message {
+            margin-bottom: 20px;
+        }
+
+        .welcome-message h1,
+        .welcome-message p {
+            margin: 0;
+            color: #333;
+        }
+
+        .welcome-message p {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .cake-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .cake-box img {
+            height: 100%;
+            width: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+            max-height: 120px; /* Optional: Limit the max height to keep consistent */
+        }
+
+        .cake-box:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: #333;
+        }
+      
+      .welcome-message {
+        padding-top: 3em;
+        padding-bottom: 5em;
+      }
+
+        .cake-box a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .cake-box a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin: 5px 0;
+            }
+
+            .cake-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cake-box img {
+                margin: 0 0 20px 0;
+                width: 100%; /* Ensures the image is full width on small screens */
+                height: auto;
+                max-height: none;
+            }
+        }
+      
+      .login-btn {
+            background-color: #fff;
+            color: #333;
+            border: none;
+          margin-left: 1em;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #ccc;
+        }
+
+      footer {
+            background-color: #8b4513;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 7em;
+            width: 100%;
+            bottom: 0;
+        }
+      
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Baking Recipe</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="About-us.html">About</a>
+        <a href="more.html">More</a>
+      <a href="LoginPage.html"> <button class="login-btn" href="LoginPage.html">Login</button></a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="welcome-message">
+        <h1>Welcome to Baking Recipe</h1>
+        <p>What would you like to bake today?</p>
+    </div>
+	
+	<a href="Muffin.html" class="cake-box">
+        <img src="MuffinHome.jpg" alt="Muffins">
+        <div>
+            <h2>Muffins</h2>
+            <p>Click here for the recipe and step-by-step guide</p>
+        </div>
+    </a>
+	
+	<a href="Milky-Doughnut.html" class="cake-box">
+        <img src="MilkyDoughnutHome.jpg" alt="Milky Doughnut">
+        <div>
+            <h2>Milky Doughnut</h2>
+            <p>Click here for the recipe and step-by-step guide</p>
+        </div>
+    </a>
+	
+	<a href="Jam-Doughnut.html" class="cake-box">
+        <img src="JamDoughnutHome.jpg" alt="Jam Doughnut">
+        <div>
+            <h2>Jam Doughnut</h2>
+            <p>Click here for the recipe and step-by-step guide</p>
+        </div>
+    </a>
+
+    <a href="Red-Velvet.html" class="cake-box">
+        <img src="RedVelvetHome.jpg" alt="Red Velvet Cake">
+        <div>
+            <h2>Red Velvet Cake</h2>
+            <p>Click here for the recipe and step-by-step guide</p>
+        </div>
+    </a>
+
+    <a href="Sponge-cake.html" class="cake-box">
+        <img src="SpongeCakeHome.jpg" alt="Sponge Cake">
+        <div>
+            <h2>Sponge Cake</h2>
+            <p>Click here for the recipe and step-by-step guide</p>
+        </div>
+    </a>
+</div>
+
+  <footer>
+    Baking App 2024
+</footer>
+</body>
+</html>
