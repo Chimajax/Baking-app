@@ -1,84 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baking Website</title>
     <style>
-        body {
-            margin: 0;
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body {
             padding: 0;
             font-family: Arial, sans-serif;
             background-image: url('BakingBackground.jpg');
 			background-size: cover; /* Ensure the image covers the entire background */
 			background-position: center; /* Center the image */
 			background-repeat: no-repeat; /* Do not repeat the image */
-        }
-
-        header {
-            background-color: #8b4513; /* Dark brown header background color */
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-		
-		.checkbtn {
-		color: white;
-		float: right;
-		line-height: 80px;
-		margin-right; 40px;
-		cursor: pointer;
-		}
-		#check{
-		display: none;
-		}
-		
-		@media (max-width: 858px) {
-		.checkbtn{
-		display: block;
-		}
-		nav {
+			font-family: Tahoma;
+	}
+	
+	header {
 		position: fixed;
+		margin-bottom: 85px;
 		width: 100%;
-		height: 100vh;
-		background: #8b4513;
-		top: 80px;
-		left: -100%;
-		text-align: Center;
-		transition: all .5s;
-		}
-		nav .headcon{
-		display: block;
-		padding-top: 9px;
-		margin: 50px 0;
-		line-height: 30px
-		}
-		nav ul li a {
+		top: 0;
+		z-index: 999;
+		
+	}
+	
+	nav {
+		background-color: #8b4513;
+		box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+		height: 70px;
+		
+	}
+	
+	nav ul {
+		width: 100%;
+		list-style: none;
+		display: flex;
+		justify-content: flex-end;
+		align-items: Center;
+	}
+	
+	nav li {
+		height: 60px;
+	}
+	
+	nav a {
+		height: 100%;
+		padding: 0 30px;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		color: #fff;
+	}
+	
+	nav a:hover {
+		text-decoration: underline; 
+	}
+	
+	nav .headerr:hover {
+		text-decoration: none;
+	}
+	
+	nav li:first-child {
+		margin-right: auto;
+		font-size: 30px;
+		text-decoration: none;
+	}
+	
+	nav .login-btn {
+		text-decoration: none;
+		height: 100%;
 		font-size: 20px;
-		}
-		a:hover, a.active {
-		color: brown;
-		}
-		#check:checked ~ nav{
-		left: 0;
+        background-color: #fff;
+        text-color: black;
+        border: none;
+		margin-left: 0;
+        padding: 10px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+	}
+	nav .login-btn:hover {
+		text-decoration: none;
+	}
+	
+	.sidebar {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		width: 250px;
+		z-index: 999;
+		background-color: rgba(139, 69, 19, 0.7);
+		backdrop-filter: blur(10px);
+		box-shadow:  -10px 0 10px rgba(0, 0, 0, 0.1);
+		display: none;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+	
+	.sidebar li {
+		width: 100%;
+	}
+	
+	.sidebar a {
+		width: 100%;
+	}
+	
+	.menu-button {
+		display: none;
+	}
+	
+	@media(max-width: 800px){
+		.hideOnMobile{
+			display: none;
 		}
 		
+		.menu-button {
+			display: block;
 		}
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 15px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
+		
+		nav a:hover {
+		text-decoration: none; 
+		background-color: transparent;
+		}
+		nav .headerr:hover {
+		text-decoration: none;
+		background-color: transparent;
+		}
+	}
+	
+	@media(max-width: 400px){
+		.sidebar{
+			width: 100%;
+		}
+		nav li:first-child {
+		margin-right: auto;
+		font-size: 20px;
+		text-decoration: none;
+	}
+	}
+	
+	.container {
             max-width: 600px;
             margin: 50px auto;
             padding: 0 10px;
@@ -174,20 +240,22 @@
             }
         }
       
-      .login-btn {
+     /* .login-btn {
+			height: 90%;
             background-color: #fff;
-            color: #333;
+            color: black;
             border: none;
-          margin-left: 1em;
-            padding: 10px 20px;
+			margin-left: 0;
+            padding: 0;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-        }
+        } */
 
         .login-btn:hover {
             background-color: #ccc;
-        }
+			text-decoration: none;
+        } 
 
       footer {
             background-color: #8b4513;
@@ -198,27 +266,34 @@
             width: 100%;
             bottom: 0;
         }
-      
-    </style>
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	
+	
+	</style>
 </head>
-<body>
-
-<header>
-    <h1>My Baking Recipe</h1>
-    <nav>
-	<input type="checkbox" id="check">
-	<label for="check" class="checkbtn">
-	<i class='fas fa-caret-square-down' style='font-size:36px'></i>
-	</label>
-        <a class="headcon" href="#">Home</a>
-        <a class="headcon" href="About-us.html">About</a>
-        <a class="headcon" href="more.html">More</a>
-      <a class="headcon" href="LoginPage.html"> <button class="login-btn" href="LoginPage.html">Login</button></a>
-    </nav>
-</header>
-
-<div class="container">
+	<body>
+	<header>
+		<nav>
+		
+			<ul class="sidebar">
+			<li  class="headerr" onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+			<li><a href="#">Home</a></li>
+			<li><a href="About-us.html">About</a></li>
+			<li><a href="more.html">More</a></li>
+			<li><a href="LoginPage.html">Login</a></li>
+			</ul>
+		
+			<ul>
+			<li><a class="headerr" href="#">My Baking Receipe</a></li>
+			<li class="hideOnMobile"><a href="#">Home</a></li>
+			<li class="hideOnMobile"><a href="About-us.html">About</a></li>
+			<li class="hideOnMobile"><a href="more.html">More</a></li>
+			<li class="hideOnMobile headerr login-btn"><a href="LoginPage.html"><font color="black">Login</font></a></li>
+			<li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+			</ul>
+	
+		</nav>
+	</header>
+	<div class="container">
     <div class="welcome-message">
         <h1>Welcome to Baking Recipe</h1>
         <p>What would you like to bake today?</p>
@@ -268,5 +343,20 @@
   <footer>
     Baking App 2024
 </footer>
-</body>
+	
+	
+	
+		<script>
+			function showSidebar(){
+				const sidebar = document.querySelector('.sidebar')
+				sidebar.style.display = 'flex'
+		}
+			function hideSidebar(){
+				const sidebar = document.querySelector('.sidebar')
+				sidebar.style.display = 'none'
+		}
+		
+		</script>
+		
+	</body>
 </html>
